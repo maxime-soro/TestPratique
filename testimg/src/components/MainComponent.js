@@ -28,7 +28,7 @@ class Main extends Component {
       <div>
       <Header />
       <Feed pictures={this.state.pics} />
-      <h1> Main quel bail vrai délire</h1>
+      <h1> Main vrai délire</h1>
 
       </div>
     );
