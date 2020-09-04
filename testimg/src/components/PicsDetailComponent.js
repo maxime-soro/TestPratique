@@ -6,9 +6,9 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
     if (pics != null) {
         return(
           <Card>
-          <CardImg width="100%" src={pics.image} alt={pics.name}/>
+          <CardImg width="200%" src={pics.image} alt={pics.name}/>
           <CardBody>
-            <CardTitle>{pics.name}</CardTitle>
+            <CardTitle>{pics.date}</CardTitle>
           </CardBody>
           </Card>
         );
@@ -25,9 +25,7 @@ if (props.pics != null){
       return (
         <div className="container">
           <div className="row">
-            <div  className="col-12 col-md-5 m-1">
                      <RenderPics pics={props.pics} />
-                     </div>
             </div>
           </div>
         );

@@ -29,8 +29,9 @@ class Main extends Component {
       <Container>
       <Row>
       <Col>
-
       <Feed pictures={this.state.pics} onClick={(picsId) => this.onPicsSelect(picsId)}/>
+      </Col>
+      <Col>
       <PicsDetail pics={this.state.pics.filter((pics) => pics.id === this.state.selectedPics)[0]} />
       </Col>
       </Row>
