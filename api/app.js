@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var multer = require('multer')
 var cors = require("cors");
+var fs = require("fs");
 
 
 var indexRouter = require('./routes/index');
@@ -16,14 +17,33 @@ var app = express();
 
 var storage = multer.diskStorage({
       destination: function (req, file, cb) {
-      cb(null, 'public')
+      cb(null, 'public/images')
     },
     filename: function (req, file, cb) {
-      cb(null, Date.now() + '-' +file.originalname )
+      cb(null, file.originalname )
+      fs.writeFile('public/images/lst.js', file.originalname, function(err) {
+        // If an error occurred, show it and return
+        if(err) return console.error(err);
+        // Successfully wrote to the file!
+      });
+
     }
+
+
 })
 
 var upload = multer({ storage: storage }).single('file')
+
+
+const images = './images/';
+app.use(express.static('./images'));
+
+app.get('/images', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    fs.readdir(images, (err, files) => {
+        res.send(files);
+      });
+});
 
 
 // view engine setup
@@ -60,6 +80,7 @@ app.post('/upload',function(req, res) {
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
