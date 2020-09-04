@@ -6,13 +6,12 @@ import { Link } from 'react-router-dom';
 function RenderFeedItem({pics, onClick}) {
 
   return(
-    <Card>
-    <Link to={`/menu/${pics.id}`} >
+
+    <Card onClick={() => onClick(pics.id)}>
       <CardImg width="100%" src={pics.image} alt={pics.name}/>
       <CardImgOverlay>
       <CardTitle>{pics.name}</CardTitle>
   </ CardImgOverlay>
-      </Link>
     </Card>
   );
 }
@@ -21,7 +20,7 @@ const Feed = (props) =>{
   const feed = props.pictures.map((pics) =>{
     return (
       <div key={pics.id} className="col-12 col-md-5 m-1">
-        <RenderFeedItem pics={pics} />
+        <RenderFeedItem pics={pics} onClick={props.onClick} />
       </div>
 
 
