@@ -11,7 +11,7 @@ function RenderFeedItem({pics, onClick}) {
   return(
 
     <Card onClick={() => onClick(pics.id)}>
-      <CardImg width="100%" src={baseUrl + pics.filename} alt={pics.name}/>
+      <CardImg width="100%" src={pics.image} alt={pics.name}/>
       <CardImgOverlay>
       <CardTitle>{pics.filename}</CardTitle>
   </ CardImgOverlay>
