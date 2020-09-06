@@ -26,12 +26,13 @@ var storage = multer.diskStorage({
       fileBuffer = fs.readFileSync('../testimg/src/shared/pictures.js');
       to_string = fileBuffer.toString();
       split_lines = to_string.split("\n");
+      datetime = new Date().toISOString();
 
 
       fs.truncate('../testimg/src/shared/pictures.js', to_string.length-3, function() {
       });
 
-      fs.appendFile('../testimg/src/shared/pictures.js', ",\n{\n id: " + to_string.length + ",\n image: 'http://localhost:9000/images/" + file.originalname + "',\n}\n\n];" , function(err) {
+      fs.appendFile('../testimg/src/shared/pictures.js', ",\n{\n id: " + split_lines.length + ",\n image: 'http://localhost:9000/images/" + file.originalname + "',\n date: '"+ datetime +"' \n}\n  \n  \n  \n   \n];" , function(err) {
         // If an error occurred, show it and return
         if(err) return console.error(err);
         // Successfully wrote to the file!

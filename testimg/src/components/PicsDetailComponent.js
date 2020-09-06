@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Col, Row, Container } from 'reactstrap';
 
 
   function RenderPics({pics}){
@@ -8,7 +8,14 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
           <Card>
           <CardImg width="200%" src={pics.image} alt={pics.name}/>
           <CardBody>
-            <CardTitle>{pics.date}</CardTitle>
+            <CardTitle>
+            <div><td>{new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit"
+  }).format(new Date(Date.parse(pics.date)))}
+</td></div>
+            </CardTitle>
           </CardBody>
           </Card>
         );
@@ -23,10 +30,17 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
     const PicsDetail = (props) => {
 if (props.pics != null){
       return (
-        <div className="container">
-          <div className="row">
+        <div>
+        <Container>
+        <Row>
+            <Col xs={8}>
                      <RenderPics pics={props.pics} />
-            </div>
+                     </Col>
+                     <Col>
+                     </Col>
+                     </Row>
+                     </Container>
+
           </div>
         );
       }

@@ -9,21 +9,23 @@ export const baseUrl = "http://localhost:9000/images";
 function RenderFeedItem({pics, onClick}) {
 
   return(
-
-    <Card onClick={() => onClick(pics.id)}>
+    <Card>
+    <Link to={`/feed/${pics.id}`} >
       <CardImg width="100%" src={pics.image} alt={pics.name}/>
       <CardImgOverlay>
       <CardTitle>{pics.filename}</CardTitle>
   </ CardImgOverlay>
+  </Link>
     </Card>
   );
 }
 
 const Feed = (props) =>{
+
   const feed = props.pictures.map((pics) =>{
     return (
-      <div key={pics.id} className="col-12 col-md-5 m-1">
-        <RenderFeedItem pics={pics} onClick={props.onClick} />
+      <div key={pics.id} className="col-12 col-md-4">
+        <RenderFeedItem pics={pics} />
       </div>
 
 
@@ -33,8 +35,10 @@ const Feed = (props) =>{
 
   return (
       <div className="container">
-          <div className="row">
-              {feed}
+      <div className="">
+          <div className="row flex-column-reverse">
+                        {feed}
+          </div>
           </div>
       </div>
   );

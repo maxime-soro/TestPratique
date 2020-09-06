@@ -26,20 +26,22 @@ export const PICTURES =
         date: "2011-12-02T17:57:28.556094Z"
         }
 
-,
-{
- id: 667,
- image: 'http://localhost:9000/images/DJI_0900.JPG',
-}
-,
-{
- id: 736,
- image: 'http://localhost:9000/images/IMG_5295 copy.jpg',
-}
-,
-{
- id: 810,
- image: 'http://localhost:9000/images/DJI_0886.JPG',
-}
 
+
+
+
+
+
+
+
+,
+{
+ id: 38,
+ image: 'http://localhost:9000/images/besure.png',
+ date: '2020-09-06T22:34:16.119Z' 
+}
+  
+  
+  
+   
 ];
