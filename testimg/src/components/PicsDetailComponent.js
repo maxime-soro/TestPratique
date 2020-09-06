@@ -12,7 +12,10 @@ import { Card, CardImg, CardText, CardBody, CardTitle, Col, Row, Container } fro
             <div><td>{new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "short",
-    day: "2-digit"
+    day: "2-digit",
+    hour: "numeric",
+    minute: "numeric",
+    timeZoneName: "short",
   }).format(new Date(Date.parse(pics.date)))}
 </td></div>
             </CardTitle>
