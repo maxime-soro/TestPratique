@@ -26,11 +26,6 @@ class Main extends Component {
 }
 
 
-componentDidMount() {
-  this.myRef.current.scrollTo(0, 0);
-}
-
-
 
 
   render() {
@@ -43,15 +38,15 @@ componentDidMount() {
     }
 
     return (
-      <div ref={this.myRef}>
-      <Header />
+      <div >
+      <Header/>
       <Container>
       <Row>
       <Col>
       <Switch>
       <Route path="/feed/:picsId" component={PicsDetailId} />
       <Route exact path="/feed" component={() => <Feed pictures={this.state.pics}/>} />
-      <Redirect to="/feed"/>
+      <Redirect to="/feed/"/>
       </Switch>
       </Col>
       </Row>

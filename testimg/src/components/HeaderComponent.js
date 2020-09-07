@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Link, Redirect } from 'react-router-dom';
+import { PICTURES } from '../shared/pictures';
 import axios from 'axios';
+
+
 
 class Header extends Component {
   constructor(props){
     super(props);
 
     this.state = {
+      pics: PICTURES,
       isNavOpen: false,
       isModalOpen: false,
       selectedFile: null
@@ -44,11 +49,12 @@ class Header extends Component {
       // receive two    parameter endpoint url ,form data
   })
   .then(res => { // then print response status
-    console.log(res.statusText)
+    console.log(res.statusText + "easy test")
  })
 }
 
   render(){
+
 
     return(
       <React.Fragment>
@@ -70,7 +76,9 @@ class Header extends Component {
           </ModalBody>
           <ModalFooter>
           <Button color="danger" onClick={this.toggleModal}>Close</Button>
-          <Button color="success" href="/" onClick={this.onClickHandler}>Upload</Button>
+          <Button color="success" onClick={this.onClickHandler}>
+            Upload
+          </Button>
           </ModalFooter>
           </Modal>
       </React.Fragment>

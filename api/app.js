@@ -7,6 +7,7 @@ var logger = require('morgan');
 var multer = require('multer');
 var cors = require("cors");
 var fs = require("fs");
+var http = require ("http");
 const BASE_URL = "http://localhost:9000/images/"
 
 
@@ -27,10 +28,13 @@ var storage = multer.diskStorage({
       to_string = fileBuffer.toString();
       split_lines = to_string.split("\n");
       datetime = new Date().toISOString();
+      split_lines.splice(-2, 2);
+      var res;
 
+      fs.writeFile('../testimg/src/shared/pictures.js', split_lines.join("\n"), function (err) {
 
-      fs.truncate('../testimg/src/shared/pictures.js', to_string.length-3, function() {
       });
+
 
       fs.appendFile('../testimg/src/shared/pictures.js', ",\n{\n id: " + split_lines.length + ",\n image: 'http://localhost:9000/images/" + file.originalname + "',\n date: '"+ datetime +"' \n}\n  \n  \n  \n   \n];" , function(err) {
         // If an error occurred, show it and return
@@ -76,6 +80,8 @@ app.post('/upload',function(req, res) {
 
 
     upload(req, res, function (err) {
+      return res.redirect("'http://localhost:3000/feed/" + req.file + "''");
+
            if (err instanceof multer.MulterError) {
                return res.status(500).json(err)
            } else if (err) {
