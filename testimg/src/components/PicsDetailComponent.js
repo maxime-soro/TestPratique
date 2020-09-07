@@ -5,22 +5,33 @@ import { Card, CardImg, CardText, CardBody, CardTitle, Col, Row, Container } fro
   function RenderPics({pics}){
     if (pics != null) {
         return(
-          <Card>
-          <CardImg width="200%" src={pics.image} alt={pics.name}/>
-          <CardBody>
-            <CardTitle>
-            <div><td>{new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "2-digit",
-    hour: "numeric",
-    minute: "numeric",
-    timeZoneName: "short",
-  }).format(new Date(Date.parse(pics.date)))}
+          <Container>
+          <Row>
+
+          <Col md={7} className="my-3">
+          <Card >
+          <CardImg width="100%" src={pics.image} alt={pics.name}/>
+            </Card>
+          </Col>
+          <Col md={5} className="my-3">
+          <CardTitle>
+          <div><td>{new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "2-digit",
+  hour: "numeric",
+  minute: "numeric",
+  timeZoneName: "short",
+}).format(new Date(Date.parse(pics.date)))}
 </td></div>
-            </CardTitle>
-          </CardBody>
-          </Card>
+</CardTitle>
+          </Col>
+
+
+          </Row>
+          </Container>
+
+
         );
     }
     else {
@@ -34,15 +45,9 @@ import { Card, CardImg, CardText, CardBody, CardTitle, Col, Row, Container } fro
 if (props.pics != null){
       return (
         <div>
-        <Container>
-        <Row>
-            <Col xs={8}>
+
                      <RenderPics pics={props.pics} />
-                     </Col>
-                     <Col>
-                     </Col>
-                     </Row>
-                     </Container>
+
 
           </div>
         );

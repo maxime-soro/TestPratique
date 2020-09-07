@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './HeaderComponent';
 import Feed from './FeedComponent';
-import ImageContainer from './ImageContainerComponent';
 
 import PicsDetail from './PicsDetailComponent';
 
@@ -14,11 +13,12 @@ class Main extends Component {
 
   constructor(props) {
     super(props);
+    this.myRef = React.createRef();  // Create a ref object
+
     this.state = {
       pics : PICTURES,
       selectedPics : null,
-      images: [],
-      imageUrls:[],
+
     };
   }
 
@@ -27,7 +27,15 @@ class Main extends Component {
 }
 
 
+componentDidMount() {
+  this.myRef.current.scrollTo(0, 0);
+}
+
+
+
+
   render() {
+
     const PicsDetailId = ({match}) =>{
       return(
         <PicsDetail pics={this.state.pics.filter((pics) => pics.id === parseInt(match.params.picsId, 10))[0]} />
@@ -36,7 +44,7 @@ class Main extends Component {
     }
 
     return (
-      <div>
+      <div ref={this.myRef}>
       <Header />
       <Container>
       <Row>
@@ -48,7 +56,6 @@ class Main extends Component {
       </Switch>
       </Col>
       </Row>
-      <h1> Main vrai délire</h1>
       </Container>
 
 

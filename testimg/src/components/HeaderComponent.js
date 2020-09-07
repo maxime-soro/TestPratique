@@ -52,27 +52,25 @@ class Header extends Component {
 
     return(
       <React.Fragment>
-        <Navbar dark expand="md">
+        <Navbar dark expand="md" className="bg-dark fixed-top">
           <div className="container">
             <NavbarToggler onClick={this.toggleNav}/>
-            <NavbarBrand> Lessgo </NavbarBrand>
+            <NavbarBrand href="/feed/"> Brand New </NavbarBrand>
             <Collapse isOpen={this.state.isNavOpen} navbar>
-            <Nav navbar>
-            <h2>Lessgo</h2>
-            <input type='file' id='multi' name='file' onChange={this.onChangeHandler}/>
-
-            <Button onClick={this.onClickHandler}>Add Picture</Button>
+            <Nav navbar className="navbar-nav ml-auto text-left">
+            <Button className="mr-4 float-right" onClick={this.toggleModal}>Upload</Button>
             </Nav>
             </Collapse>
           </div>
         </Navbar>
           <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalHeader> Add pictures </ModalHeader>
+          <ModalHeader> Add a picture</ModalHeader>
           <ModalBody>
-            </ModalBody>
+          <input type='file' id='multi' name='file' onChange={this.onChangeHandler}/>
+          </ModalBody>
           <ModalFooter>
           <Button color="danger" onClick={this.toggleModal}>Close</Button>
-          <Button color="success" onClick={this.toggleModal}>Upload</Button>
+          <Button color="success" href="/" onClick={this.onClickHandler}>Upload</Button>
           </ModalFooter>
           </Modal>
       </React.Fragment>
