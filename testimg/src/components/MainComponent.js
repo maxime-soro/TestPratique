@@ -4,10 +4,9 @@ import Feed from './FeedComponent';
 
 import PicsDetail from './PicsDetailComponent';
 
-import { Container, Row, Col, Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
-import { Link, Route, Switch, Redirect } from 'react-router-dom';
+import { Container, Row, Col } from 'reactstrap';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { PICTURES } from '../shared/pictures';
-const BASE_URL = "http://localhost:9000/images/"
 
 class Main extends Component {
 

@@ -1,6 +1,5 @@
-import React, { Component, useState, useEffect } from 'react';
-import Header from './HeaderComponent';
-import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem, CardBody, CardText, Col, Row, Container } from 'reactstrap';
+import React from 'react';
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom';
 export const baseUrl = "http://localhost:9000/images";
 
