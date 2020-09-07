@@ -4,6 +4,13 @@ L'application est composé d'une API et d'une interface développée en ReactJS.
 
 ## Installation
 
+Dans le dossier principal "TestPratique"
+
+```bash
+cd testimg
+npm install
+```
+
 ## Lancement
 
 Dans le dossier principal "TestPratique" ouvrir un premier terminal
